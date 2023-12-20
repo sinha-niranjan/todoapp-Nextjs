@@ -33,7 +33,10 @@ export const checkAuth = async (req) => {
 
   if (!cookie) return null;
 
-  const token = cookie.split("=")[1];
+
+  const token = cookie.split("token=")[1];
+  console.log(token)
+
 
   const decoded = Jwt.verify(token, process.env.JWT_SECRET);
 
